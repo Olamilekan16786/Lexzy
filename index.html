@@ -1,1 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="LEXZY — Web3 Content, Distribution & Community">
+  <title>LEXZY | Web3 Content, Distribution & Community</title>
 
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #08090d;
+      color: #f5f5f5;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1100px, 92%);
+      margin: auto;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(8, 9, 13, 0.9);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid #1c1f27;
+    }
+
+    .nav-inner {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 900;
+      letter-spacing: -1px;
+    }
+
+    .logo span {
+      color: #8b5cf6;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+      font-size: 14px;
+      color: #aaa;
+    }
+
+    .nav-links a:hover {
+      color: #fff;
+    }
+
+    .hero {
+      padding: 110px 0 90px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      color: #a78bfa;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 850px;
+      font-size: clamp(48px, 8vw, 88px);
+      line-height: 0.98;
+      letter-spacing: -5px;
+      margin-bottom: 28px;
+    }
+
+    h1 span {
+      color: #8b5cf6;
+    }
+
+    .hero-text {
+      max-width: 650px;
+      color: #a8abb5;
+      font-size: 19px;
+      margin-bottom: 35px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .button {
+      padding: 14px 21px;
+      border-radius: 10px;
+      border: 1px solid #2a2d36;
+      font-weight: 700;
+      font-size: 14px;
+      transition: 0.2s ease;
+    }
+
+    .button.primary {
+      background: #8b5cf6;
+      border-color: #8b5cf6;
+      color: white;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      border-color: #8b5cf6;
+    }
+
+    section {
+      padding: 90px 0;
+      border-top: 1px solid #171a21;
+    }
+
+    .section-label {
+      color: #8b5cf6;
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      font-size: clamp(34px, 5vw, 54px);
+      letter-spacing: -2px;
+      margin-bottom: 16px;
+    }
+
+    .section-intro {
+      color: #9da1ad;
+      max-width: 650px;
+      margin-bottom: 45px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: #0e1016;
+      border: 1px solid #1d2029;
+      border-radius: 18px;
+      padding: 28px;
+    }
+
+    .card h3 {
+      font-size: 21px;
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      color: #9da1ad;
+      font-size: 15px;
+    }
+
+    .work {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .work-card {
+      min-height: 240px;
+      background: linear-gradient(145deg, #11131b, #0b0c11);
+      border: 1px solid #20232d;
+      border-radius: 20px;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .work-card small {
+      color: #8b5cf6;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .work-card h3 {
+      font-size: 29px;
+      margin: 12px 0;
+    }
+
+    .work-card p {
+      color: #a2a5af;
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .about p {
+      color: #a6a9b3;
+      margin-bottom: 18px;
+      font-size: 17px;
+    }
+
+    .quote {
+      background: #10121a;
+      border: 1px solid #242733;
+      border-radius: 20px;
+      padding: 38px;
+      font-size: 26px;
+      line-height: 1.3;
+      font-weight: 700;
+    }
+
+    .contact {
+      text-align: center;
+      padding-bottom: 120px;
+    }
+
+    .contact p {
+      max-width: 600px;
+      margin: 0 auto 30px;
+      color: #a2a5af;
+    }
+
+    footer {
+      border-top: 1px solid #171a21;
+      padding: 30px 0;
+      color: #707581;
+      font-size: 13px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 760px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding: 80px 0 70px;
+      }
+
+      h1 {
+        letter-spacing: -3px;
+      }
+
+      .grid,
+      .work,
+      .about {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 70px 0;
+      }
+
+      .quote {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <div class="container nav-inner">
+      <a href="#" class="logo">LEX<span>ZY</span></a>
+
+      <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+
+    <section class="hero">
+      <div class="container">
+        <div class="eyebrow">Web3 Content + Distribution + Community</div>
+
+        <h1>
+          Make your project
+          <span>seen, understood & remembered.</span>
+        </h1>
+
+        <p class="hero-text">
+          I help Web3 projects turn complex ideas into clear content,
+          distribute them to the right audience, and build stronger
+          communities around what they are creating.
+        </p>
+
+        <div class="buttons">
+          <a class="button primary" href="#contact">Let's work together</a>
+          <a class="button" href="https://x.com/Oxlekan" target="_blank">View my X</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-label">What I do</div>
+        <h2>Content that moves.</h2>
+
+        <p class="section-intro">
+          I focus on making Web3 products easier to understand and easier
+          for the right people to discover.
+        </p>
+
+        <div class="grid">
+
+          <div class="card">
+            <h3>Content Strategy</h3>
+            <p>
+              Clear, human and educational Web3 content built around
+              the product, audience and narrative.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Distribution</h3>
+            <p>
+              Strategic X content and conversations designed to put
+              the right message in front of the right audience.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Community</h3>
+            <p>
+              Community-focused communication that helps people
+              understand the product and stay engaged.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="work">
+      <div class="container">
+        <div class="section-label">Selected work</div>
+        <h2>Projects I've worked around.</h2>
+
+        <p class="section-intro">
+          A selection of Web3 projects and narratives I've created
+          content around.
+        </p>
+
+        <div class="work">
+
+          <div class="work-card">
+            <div>
+              <small>Music + Web3</small>
+              <h3>Bambitz</h3>
+              <p>
+                Community-first content exploring Bambitz's virtual
+                panda band, music ecosystem and $BAM.
+              </p>
+            </div>
+          </div>
+
+          <div class="work-card">
+            <div>
+              <small>AI + Markets</small>
+              <h3>Quant AI</h3>
+              <p>
+                Educational content around AI-powered market
+                intelligence and crypto research.
+              </p>
+            </div>
+          </div>
+
+          <div class="work-card">
+            <div>
+              <small>Prediction Markets</small>
+              <h3>WahooPredict</h3>
+              <p>
+                Content exploring prediction markets, crowd
+                sentiment and real-world event outcomes.
+              </p>
+            </div>
+          </div>
+
+          <div class="work-card">
+            <div>
+              <small>RWA</small>
+              <h3>DualMint</h3>
+              <p>
+                Content focused on real-world assets and the
+                connection between physical infrastructure and Web3.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container about">
+
+        <div>
+          <div class="section-label">About LEXZY</div>
+
+          <h2>Human content. Real distribution.</h2>
+
+          <p>
+            I'm LEXZY, a Web3 content creator focused on content,
+            distribution and community.
+          </p>
+
+          <p>
+            I enjoy breaking down new products, finding the part
+            worth paying attention to, and turning it into content
+            people can actually understand.
+          </p>
+
+          <p>
+            The goal is simple: help good Web3 projects get discovered,
+            understood and remembered.
+          </p>
+        </div>
+
+        <div class="quote">
+          “The goal is simple: make good projects easier to discover,
+          easier to understand and harder to forget.”
+        </div>
+
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="container">
+
+        <div class="section-label">Let's work</div>
+
+        <h2>Have something worth building?</h2>
+
+        <p>
+          If you're looking for a Web3 creator who can help with
+          content, distribution or community, let's talk.
+        </p>
+
+        <div class="buttons" style="justify-content:center;">
+
+          <a class="button primary"
+             href="mailto:olalelekanezekiel@gmail.com">
+            Email me
+          </a>
+
+          <a class="button"
+             href="https://x.com/Oxlekan"
+             target="_blank">
+            X / @Oxlekan
+          </a>
+
+          <a class="button"
+             href="https://t.me/Goodness8905"
+             target="_blank">
+            Telegram
+          </a>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div>© 2026 LEXZY. All rights reserved.</div>
+      <div>Web3 Content • Distribution • Community</div>
+    </div>
+  </footer>
+
+</body>
+  </html>
